@@ -1,6 +1,6 @@
-/* Write your T-SQL query statement below */
-SELECT Salary
-    From (SELECT Salary, RANK () OVER (ORDER BY Salary) AS rank 
+# Write your MySQL query statement below
+SELECT (SELECT DISTINCT Salary
             FROM Employee
-         ) AS T
-    WHERE T.rank = 2;
+            ORDER BY Salary DESC
+            LIMIT 1 OFFSET 1
+) AS SecondHighestSalary;
